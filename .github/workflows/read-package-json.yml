@@ -15,3 +15,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Read from package json
+        uses: gagle/package-version@v1
+        id: package-version
+
+      - run: ${{ steps.package-version.outputs.version }}
